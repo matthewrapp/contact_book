@@ -13,17 +13,21 @@ app.use(bodyParser.urlencoded({
 // routes
 app.get('/', (req, res, next) => { res.json({ info: 'Contact book, made with Node.js, Express, and PostgreSQL' }) });
 
+// all get routes
 app.get('/admins', db.getAdmins);
 app.get('/admin?:id', db.getAdmin);
 app.get('/contacts', db.getContacts);
 app.get('/contact?:id', db.getContact);
 
+// all post routes
 app.post('/create-admin', db.postCreateAdmin);
 app.post('/create-contact', db.postCreateContact);
 
+// all update routes
 app.put('/update-admin?:id', db.updateAdmin);
 app.put('/update-contact?:id', db.updateContact);
 
+// all delete routes
 app.delete('/delete-admin?:id', db.deleteAdmin);
 app.delete('/delete-all-admins', db.deleteAllAdmins);
 app.delete('/delete-contact?:id', db.deleteContact);
